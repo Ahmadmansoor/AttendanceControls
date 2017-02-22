@@ -1,0 +1,16 @@
+D:\Code\AttendanceControls\AttendanceControls\bin\Debug\AttendanceControls.exe.config
+D:\Code\AttendanceControls\AttendanceControls\bin\Debug\AttendanceControls.exe
+D:\Code\AttendanceControls\AttendanceControls\bin\Debug\AttendanceControls.pdb
+D:\Code\AttendanceControls\AttendanceControls\bin\Debug\AttendanceControls.xml
+D:\Code\AttendanceControls\AttendanceControls\obj\Debug\AttendanceControls.MainForm.resources
+D:\Code\AttendanceControls\AttendanceControls\obj\Debug\AttendanceControls.Resources.resources
+D:\Code\AttendanceControls\AttendanceControls\obj\Debug\AttendanceControls.vbproj.GenerateResource.Cache
+D:\Code\AttendanceControls\AttendanceControls\obj\Debug\AttendanceControls.exe
+D:\Code\AttendanceControls\AttendanceControls\obj\Debug\AttendanceControls.xml
+D:\Code\AttendanceControls\AttendanceControls\obj\Debug\AttendanceControls.pdb
+D:\Code\AttendanceControls\AttendanceControls\obj\Debug\AttendanceControls.vbprojResolveAssemblyReference.cache
+D:\Code\AttendanceControls\AttendanceControls\bin\Debug\GridLib.dll
+D:\Code\AttendanceControls\AttendanceControls\obj\Debug\AttendanceControls.CanceledUsers.resources
+D:\Code\AttendanceControls\AttendanceControls\obj\Debug\AttendanceControls.UsersInfos.resources
+D:\Code\AttendanceControls\AttendanceControls\obj\Debug\AttendanceControls.FormChose.resources
+D:\Code\AttendanceControls\AttendanceControls\obj\Debug\AttendanceControls.MonthlySalary.resources
