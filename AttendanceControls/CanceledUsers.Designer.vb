@@ -107,6 +107,17 @@ Partial Class CanceledUsers
         Me.Bu_refresh = New System.Windows.Forms.Button()
         Me.Bu_Save = New System.Windows.Forms.Button()
         Me.Bu_Cancel = New System.Windows.Forms.Button()
+        Me.TerminationUsersDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         TerminationIDLabel = New System.Windows.Forms.Label()
         UserIDLabel = New System.Windows.Forms.Label()
         UsernameLabel = New System.Windows.Forms.Label()
@@ -143,6 +154,7 @@ Partial Class CanceledUsers
         Me.GroupBox2.SuspendLayout()
         CType(Me.UserInfosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UsersTableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TerminationUsersDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TerminationIDLabel
@@ -914,12 +926,102 @@ Partial Class CanceledUsers
         Me.Bu_Cancel.Text = "Cancel"
         Me.Bu_Cancel.UseVisualStyleBackColor = True
         '
+        'TerminationUsersDataGridView
+        '
+        Me.TerminationUsersDataGridView.AllowUserToAddRows = False
+        Me.TerminationUsersDataGridView.AllowUserToDeleteRows = False
+        Me.TerminationUsersDataGridView.AutoGenerateColumns = False
+        Me.TerminationUsersDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.TerminationUsersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.TerminationUsersDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10})
+        Me.TerminationUsersDataGridView.DataSource = Me.TerminationUsersBindingSource
+        Me.TerminationUsersDataGridView.Location = New System.Drawing.Point(12, 469)
+        Me.TerminationUsersDataGridView.Name = "TerminationUsersDataGridView"
+        Me.TerminationUsersDataGridView.ReadOnly = True
+        Me.TerminationUsersDataGridView.Size = New System.Drawing.Size(652, 218)
+        Me.TerminationUsersDataGridView.TabIndex = 22
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "TerminationID"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "TerminationID"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Visible = False
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "UserID"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "UserID"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "Username"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Username"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "Password"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Password"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn4.Visible = False
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "Section"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Section"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "UserLevel"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "UserLevel"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.DataGridViewTextBoxColumn6.Visible = False
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "Stamp"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "Stamp"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.Visible = False
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "JointDate"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "JointDate"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.DataPropertyName = "TerminationDate"
+        Me.DataGridViewTextBoxColumn9.HeaderText = "TerminationDate"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        Me.DataGridViewTextBoxColumn9.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn10
+        '
+        Me.DataGridViewTextBoxColumn10.DataPropertyName = "Reason"
+        Me.DataGridViewTextBoxColumn10.HeaderText = "Reason"
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        Me.DataGridViewTextBoxColumn10.ReadOnly = True
+        '
         'CanceledUsers
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.ClientSize = New System.Drawing.Size(672, 478)
+        Me.ClientSize = New System.Drawing.Size(684, 731)
+        Me.Controls.Add(Me.TerminationUsersDataGridView)
         Me.Controls.Add(Me.Bu_Cancel)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Bu_Save)
@@ -939,6 +1041,7 @@ Partial Class CanceledUsers
         Me.GroupBox2.PerformLayout()
         CType(Me.UserInfosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UsersTableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TerminationUsersDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -999,4 +1102,15 @@ Partial Class CanceledUsers
     Friend WithEvents Bu_refresh As Button
     Friend WithEvents Bu_Save As Button
     Friend WithEvents Bu_Cancel As Button
+    Friend WithEvents TerminationUsersDataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
 End Class

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class MonthlySalary
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class MonthlySalary
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim UserIDLabel As System.Windows.Forms.Label
@@ -78,14 +78,15 @@ Partial Class MonthlySalary
         Me.TB_HourSalary = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.TB_Money = New System.Windows.Forms.TextBox()
+        Me.LB_DayAbsent = New System.Windows.Forms.ListBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.TB_DayAbsent = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TB_TotalLate = New System.Windows.Forms.TextBox()
-        Me.LB_DayAbsent = New System.Windows.Forms.ListBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.TB_Money = New System.Windows.Forms.TextBox()
         Me.TableAdapterManager1 = New AttendanceControls.ACDataSetTableAdapters.TableAdapterManager()
+        Me.Button1 = New System.Windows.Forms.Button()
         UserIDLabel = New System.Windows.Forms.Label()
         UsernameLabel = New System.Windows.Forms.Label()
         SectionLabel = New System.Windows.Forms.Label()
@@ -130,6 +131,7 @@ Partial Class MonthlySalary
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.Bu_Get)
         Me.GroupBox1.Controls.Add(Me.CB_Year)
         Me.GroupBox1.Controls.Add(Me.CB_Month)
@@ -383,7 +385,7 @@ Partial Class MonthlySalary
         Me.AttendanceTableDataGridView.Location = New System.Drawing.Point(8, 135)
         Me.AttendanceTableDataGridView.Name = "AttendanceTableDataGridView"
         Me.AttendanceTableDataGridView.RowHeadersWidth = 25
-        Me.AttendanceTableDataGridView.Size = New System.Drawing.Size(1135, 623)
+        Me.AttendanceTableDataGridView.Size = New System.Drawing.Size(1046, 555)
         Me.AttendanceTableDataGridView.TabIndex = 3
         '
         'DataGridViewTextBoxColumn1
@@ -561,6 +563,33 @@ Partial Class MonthlySalary
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Result"
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(44, 94)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(52, 14)
+        Me.Label6.TabIndex = 14
+        Me.Label6.Text = "Money:"
+        '
+        'TB_Money
+        '
+        Me.TB_Money.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TB_Money.Location = New System.Drawing.Point(102, 87)
+        Me.TB_Money.Name = "TB_Money"
+        Me.TB_Money.Size = New System.Drawing.Size(107, 27)
+        Me.TB_Money.TabIndex = 13
+        Me.TB_Money.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'LB_DayAbsent
+        '
+        Me.LB_DayAbsent.FormattingEnabled = True
+        Me.LB_DayAbsent.ItemHeight = 14
+        Me.LB_DayAbsent.Location = New System.Drawing.Point(215, 22)
+        Me.LB_DayAbsent.Name = "LB_DayAbsent"
+        Me.LB_DayAbsent.Size = New System.Drawing.Size(162, 88)
+        Me.LB_DayAbsent.TabIndex = 12
+        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -598,33 +627,6 @@ Partial Class MonthlySalary
         Me.TB_TotalLate.TabIndex = 0
         Me.TB_TotalLate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'LB_DayAbsent
-        '
-        Me.LB_DayAbsent.FormattingEnabled = True
-        Me.LB_DayAbsent.ItemHeight = 14
-        Me.LB_DayAbsent.Location = New System.Drawing.Point(215, 22)
-        Me.LB_DayAbsent.Name = "LB_DayAbsent"
-        Me.LB_DayAbsent.Size = New System.Drawing.Size(162, 88)
-        Me.LB_DayAbsent.TabIndex = 12
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(44, 94)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(52, 14)
-        Me.Label6.TabIndex = 14
-        Me.Label6.Text = "Money:"
-        '
-        'TB_Money
-        '
-        Me.TB_Money.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TB_Money.Location = New System.Drawing.Point(102, 87)
-        Me.TB_Money.Name = "TB_Money"
-        Me.TB_Money.Size = New System.Drawing.Size(107, 27)
-        Me.TB_Money.TabIndex = 13
-        Me.TB_Money.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
         'TableAdapterManager1
         '
         Me.TableAdapterManager1.AttendanceTableTableAdapter = Nothing
@@ -634,12 +636,22 @@ Partial Class MonthlySalary
         Me.TableAdapterManager1.UsersTableTableAdapter = Nothing
         Me.TableAdapterManager1.VariableTableTableAdapter = Nothing
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(310, 81)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 30)
+        Me.Button1.TabIndex = 10
+        Me.Button1.Text = "Get"
+        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Visible = False
+        '
         'MonthlySalary
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.ClientSize = New System.Drawing.Size(1155, 770)
+        Me.ClientSize = New System.Drawing.Size(1072, 702)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.AttendanceTableDataGridView)
@@ -647,8 +659,10 @@ Partial Class MonthlySalary
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.MorningTimeRoundTextBox)
         Me.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.MinimumSize = New System.Drawing.Size(1088, 38)
         Me.Name = "MonthlySalary"
-        Me.Text = "Monthly Salary"
+        Me.Text = "Monthly Salary Calculation"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.UsersTableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -727,4 +741,5 @@ Partial Class MonthlySalary
     Friend WithEvents Label6 As Label
     Friend WithEvents TB_Money As TextBox
     Friend WithEvents TableAdapterManager1 As ACDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents Button1 As Button
 End Class

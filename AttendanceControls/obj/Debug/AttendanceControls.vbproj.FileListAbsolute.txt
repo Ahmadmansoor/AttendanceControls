@@ -14,3 +14,15 @@ D:\Code\AttendanceControls\AttendanceControls\obj\Debug\AttendanceControls.Cance
 D:\Code\AttendanceControls\AttendanceControls\obj\Debug\AttendanceControls.UsersInfos.resources
 D:\Code\AttendanceControls\AttendanceControls\obj\Debug\AttendanceControls.FormChose.resources
 D:\Code\AttendanceControls\AttendanceControls\obj\Debug\AttendanceControls.MonthlySalary.resources
+D:\Code\AttendanceControls\AttendanceControls\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+D:\Code\AttendanceControls\AttendanceControls\bin\Debug\Microsoft.SqlServer.Types.dll
+D:\Code\AttendanceControls\AttendanceControls\bin\Debug\de\Microsoft.SqlServer.Types.resources.dll
+D:\Code\AttendanceControls\AttendanceControls\bin\Debug\es\Microsoft.SqlServer.Types.resources.dll
+D:\Code\AttendanceControls\AttendanceControls\bin\Debug\fr\Microsoft.SqlServer.Types.resources.dll
+D:\Code\AttendanceControls\AttendanceControls\bin\Debug\it\Microsoft.SqlServer.Types.resources.dll
+D:\Code\AttendanceControls\AttendanceControls\bin\Debug\ja\Microsoft.SqlServer.Types.resources.dll
+D:\Code\AttendanceControls\AttendanceControls\bin\Debug\ko\Microsoft.SqlServer.Types.resources.dll
+D:\Code\AttendanceControls\AttendanceControls\bin\Debug\pt\Microsoft.SqlServer.Types.resources.dll
+D:\Code\AttendanceControls\AttendanceControls\bin\Debug\ru\Microsoft.SqlServer.Types.resources.dll
+D:\Code\AttendanceControls\AttendanceControls\bin\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+D:\Code\AttendanceControls\AttendanceControls\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll

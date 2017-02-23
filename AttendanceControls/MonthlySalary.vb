@@ -1,4 +1,6 @@
-﻿Public Class MonthlySalary
+﻿Imports Microsoft.Reporting.WinForms
+
+Public Class MonthlySalary
     Private Sub UsersTableBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles UsersTableBindingNavigatorSaveItem.Click
         Me.Validate()
         Me.UsersTableBindingSource.EndEdit()
@@ -14,6 +16,7 @@
         'TODO: This line of code loads data into the 'MonthlySalaryDataSet.UsersTable' table. You can move, or remove it, as needed.
         Me.UsersTableTableAdapter.Fill(Me.MonthlySalaryDataSet.UsersTable)
 
+        'Me.ReportViewer1.RefreshReport()
     End Sub
 
     Private Sub Bu_Get_Click(sender As Object, e As EventArgs) Handles Bu_Get.Click
@@ -132,5 +135,27 @@
             Dim totalmin As Double = TotaoLateMin.TotalMinutes + ((TB_DayAbsent.Text * 9) * 60)
             TB_Money.Text = Salarybymin * totalmin
         End If
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim myAL As New ArrayList()
+        Dim row As List(Of String)
+        For i As Integer = 0 To AttendanceTableDataGridView.RowCount() - 1
+            row = New List(Of String)
+            For j As Integer = 0 To AttendanceTableDataGridView.ColumnCount() - 1
+                row.Add(AttendanceTableDataGridView.Rows(i).Cells(j).ToString)
+            Next j
+            myAL.Add(row)
+        Next i
+        Dim bs = New BindingSource(AttendanceTableDataGridView.DataSource)
+        Dim dt As DataTable = New DataTable(bs.DataSource)
+        Dim rv As New ReportViewer
+        Dim rds As ReportDataSource = New ReportDataSource("test", dt)
+        'ReportViewer1.LocalReport.DataSources.Clear()
+        'ReportViewer1.LocalReport.DataSources.Add(rds)
+        'ReportViewer1.LocalReport.Refresh()
+        'Dim Params(0) As ReportParameter
+        'Params(0) = New ReportParameter("Ref", CType(myAL.ToArray(GetType(String)), String()))
+        'Me.ReportViewer1.RefreshReport()
     End Sub
 End Class
