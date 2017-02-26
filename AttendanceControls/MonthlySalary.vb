@@ -1,6 +1,15 @@
 ﻿Imports Microsoft.Reporting.WinForms
 
 Public Class MonthlySalary
+    Dim SalaryFileloaded As Boolean = False
+    Private Structure SalaryStrc
+        Dim IDNumber As Integer
+        Dim Username As String
+        Dim section As String
+        Dim Salary As Double
+    End Structure
+    Dim SalaryList() As SalaryStrc
+
     Private Sub UsersTableBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles UsersTableBindingNavigatorSaveItem.Click
         Me.Validate()
         Me.UsersTableBindingSource.EndEdit()
@@ -20,8 +29,16 @@ Public Class MonthlySalary
     End Sub
 
     Private Sub Bu_Get_Click(sender As Object, e As EventArgs) Handles Bu_Get.Click
+        If (SalaryList Is Nothing) Then
+            If (MsgBox("Do u want to load the salary file now ?", MsgBoxStyle.OkCancel, "alarm") = MsgBoxResult.Ok) Then
+                LoadSalary()
+            End If
+        End If
         Me.AttendanceTableTableAdapter.FillBy_UserMonthly(Me.MonthlySalaryDataSet.AttendanceTable, CB_Year.Text, CB_Month.SelectedIndex + 1, UserIDTextBox.Text)
         FillDGV()
+        Dim FindSalary As Double = (From d In SalaryList Where d.IDNumber = UserIDTextBox.Text Select d.Salary).First
+        TB_monthSalary.Text = FindSalary
+
     End Sub
     Sub FillDGV()
         Dim InUser, OutUser, TotalLate As TimeSpan
@@ -132,7 +149,14 @@ Public Class MonthlySalary
         Dim TotaoLateMin As TimeSpan = TimeSpan.Parse(TB_TotalLate.Text)
         If (TB_monthSalary.Text <> "") Then
             Dim Salarybymin As Double = TB_HourSalary.Text / 60
-            Dim totalmin As Double = TotaoLateMin.TotalMinutes + ((TB_DayAbsent.Text * 9) * 60)
+            Dim totalmin As Double
+            Try
+                totalmin = TotaoLateMin.TotalMinutes + ((TB_DayAbsent.Text * 9) * 60)
+            Catch ex As Exception
+                totalmin = 0
+                TB_DayAbsent.Text = 0
+            End Try
+
             TB_Money.Text = Salarybymin * totalmin
         End If
     End Sub
@@ -158,4 +182,81 @@ Public Class MonthlySalary
         'Params(0) = New ReportParameter("Ref", CType(myAL.ToArray(GetType(String)), String()))
         'Me.ReportViewer1.RefreshReport()
     End Sub
+
+    Private Sub Bu_LoadSalaryFile_Click(sender As Object, e As EventArgs) Handles Bu_LoadSalaryFile.Click
+        LoadSalary()
+        'SalaryFileloaded = True
+        'Dim xlapp As Microsoft.Office.Interop.Excel.Application = New Microsoft.Office.Interop.Excel.Application
+        'Dim xlWorkBook As Microsoft.Office.Interop.Excel.Workbook
+        'Dim xlWorkSheet As Microsoft.Office.Interop.Excel.Worksheet
+        'Dim path As String = My.Application.Info.DirectoryPath
+        'If Not path.EndsWith("\") Then path = path & "\"
+        'path = path & "salary.xlsx"
+        'If Not (System.IO.File.Exists(path)) Then MsgBox("File Salary not exist pls copy it again", MsgBoxStyle.OkOnly, "error") : Exit Sub
+        'xlWorkBook = xlapp.Workbooks.Open(path,, [ReadOnly]:=True)
+        'xlWorkSheet = xlWorkBook.Worksheets("Sheet1")
+        'Dim i As Integer = 2
+        'ReDim SalaryList(0)
+        'Try
+        '    While xlWorkSheet.Cells(i, 1).value.ToString <> ""
+        '        SalaryList(i - 2).IDNumber = xlWorkSheet.Cells(i, 1).value
+        '        SalaryList(i - 2).Username = xlWorkSheet.Cells(i, 2).value
+        '        SalaryList(i - 2).section = xlWorkSheet.Cells(i, 3).value
+        '        SalaryList(i - 2).Salary = xlWorkSheet.Cells(i, 4).value
+        '        i = i + 1
+        '        ReDim Preserve SalaryList(i - 2)
+        '    End While
+        'Catch ex As Exception
+
+        'End Try
+
+        'xlWorkBook.Close()
+        'xlapp.Quit()
+        'releaseObject(xlWorkSheet)
+        'releaseObject(xlWorkBook)
+        'releaseObject(xlapp)
+    End Sub
+    Private Sub releaseObject(ByVal obj As Object)
+        Try
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(obj)
+            obj = Nothing
+        Catch ex As Exception
+            obj = Nothing
+        Finally
+            GC.Collect()
+        End Try
+    End Sub
+    Private Sub LoadSalary()
+        SalaryFileloaded = True
+        Dim xlapp As Microsoft.Office.Interop.Excel.Application = New Microsoft.Office.Interop.Excel.Application
+        Dim xlWorkBook As Microsoft.Office.Interop.Excel.Workbook
+        Dim xlWorkSheet As Microsoft.Office.Interop.Excel.Worksheet
+        Dim path As String = My.Application.Info.DirectoryPath
+        If Not path.EndsWith("\") Then path = path & "\"
+        path = path & "salary.xlsx"
+        If Not (System.IO.File.Exists(path)) Then MsgBox("File Salary not exist pls copy it again", MsgBoxStyle.OkOnly, "error") : Exit Sub
+        xlWorkBook = xlapp.Workbooks.Open(path,, [ReadOnly]:=True)
+        xlWorkSheet = xlWorkBook.Worksheets("Sheet1")
+        Dim i As Integer = 2
+        ReDim SalaryList(0)
+        Try
+            While xlWorkSheet.Cells(i, 1).value.ToString <> ""
+                SalaryList(i - 2).IDNumber = xlWorkSheet.Cells(i, 1).value
+                SalaryList(i - 2).Username = xlWorkSheet.Cells(i, 2).value
+                SalaryList(i - 2).section = xlWorkSheet.Cells(i, 3).value
+                SalaryList(i - 2).Salary = xlWorkSheet.Cells(i, 4).value
+                i = i + 1
+                ReDim Preserve SalaryList(i - 2)
+            End While
+        Catch ex As Exception
+            ReDim Preserve SalaryList(i - 3)
+        End Try
+
+        xlWorkBook.Close()
+        xlapp.Quit()
+        releaseObject(xlWorkSheet)
+        releaseObject(xlWorkBook)
+        releaseObject(xlapp)
+    End Sub
+
 End Class

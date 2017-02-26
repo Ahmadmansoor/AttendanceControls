@@ -87,6 +87,7 @@ Partial Class MonthlySalary
         Me.TB_TotalLate = New System.Windows.Forms.TextBox()
         Me.TableAdapterManager1 = New AttendanceControls.ACDataSetTableAdapters.TableAdapterManager()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Bu_LoadSalaryFile = New System.Windows.Forms.Button()
         UserIDLabel = New System.Windows.Forms.Label()
         UsernameLabel = New System.Windows.Forms.Label()
         SectionLabel = New System.Windows.Forms.Label()
@@ -385,7 +386,7 @@ Partial Class MonthlySalary
         Me.AttendanceTableDataGridView.Location = New System.Drawing.Point(8, 135)
         Me.AttendanceTableDataGridView.Name = "AttendanceTableDataGridView"
         Me.AttendanceTableDataGridView.RowHeadersWidth = 25
-        Me.AttendanceTableDataGridView.Size = New System.Drawing.Size(1046, 555)
+        Me.AttendanceTableDataGridView.Size = New System.Drawing.Size(1255, 555)
         Me.AttendanceTableDataGridView.TabIndex = 3
         '
         'DataGridViewTextBoxColumn1
@@ -646,12 +647,22 @@ Partial Class MonthlySalary
         Me.Button1.UseVisualStyleBackColor = True
         Me.Button1.Visible = False
         '
+        'Bu_LoadSalaryFile
+        '
+        Me.Bu_LoadSalaryFile.Location = New System.Drawing.Point(1060, 23)
+        Me.Bu_LoadSalaryFile.Name = "Bu_LoadSalaryFile"
+        Me.Bu_LoadSalaryFile.Size = New System.Drawing.Size(96, 41)
+        Me.Bu_LoadSalaryFile.TabIndex = 12
+        Me.Bu_LoadSalaryFile.Text = "Load Salary File"
+        Me.Bu_LoadSalaryFile.UseVisualStyleBackColor = True
+        '
         'MonthlySalary
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.ClientSize = New System.Drawing.Size(1072, 702)
+        Me.ClientSize = New System.Drawing.Size(1281, 702)
+        Me.Controls.Add(Me.Bu_LoadSalaryFile)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.AttendanceTableDataGridView)
@@ -742,4 +753,5 @@ Partial Class MonthlySalary
     Friend WithEvents TB_Money As TextBox
     Friend WithEvents TableAdapterManager1 As ACDataSetTableAdapters.TableAdapterManager
     Friend WithEvents Button1 As Button
+    Friend WithEvents Bu_LoadSalaryFile As Button
 End Class
