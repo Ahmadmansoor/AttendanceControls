@@ -418,4 +418,17 @@ Public Class MainForm
 
         End Try
     End Sub
+
+    Private Sub Bu_Cal_Click(sender As Object, e As EventArgs) Handles Bu_Cal.Click
+        Dim b, En, temp, Sum As TimeSpan
+        For i = 0 To AttendanceTableDataGridView.RowCount - 1
+            b = TimeSpan.Parse(AttendanceTableDataGridView.Rows(i).Cells(4).Value.ToString)
+            En = TimeSpan.Parse(AttendanceTableDataGridView.Rows(i).Cells(5).Value.ToString)
+            If (En > b) Then
+                temp = En.Subtract(b)
+                Sum = Sum.Add(temp)
+            End If
+        Next
+        TB_HourCalc.Text = Math.Round(Sum.TotalHours) & "H :" & Sum.Minutes & "M" 'Sum.ToString.Substring(0, Sum.ToString.LastIndexOf("."))
+    End Sub
 End Class

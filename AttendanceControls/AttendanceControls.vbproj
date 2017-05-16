@@ -106,6 +106,12 @@
     <Compile Include="FormChose.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="HoliDaysForm.Designer.vb">
+      <DependentUpon>HoliDaysForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HoliDaysForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MainForm.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormChose.resx">
       <DependentUpon>FormChose.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HoliDaysForm.resx">
+      <DependentUpon>HoliDaysForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.vb</DependentUpon>

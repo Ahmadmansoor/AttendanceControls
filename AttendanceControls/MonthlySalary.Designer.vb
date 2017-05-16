@@ -36,6 +36,7 @@ Partial Class MonthlySalary
         Me.MonthlySalaryDataSet = New AttendanceControls.MonthlySalaryDataSet()
         Me.UsernameComboBox = New System.Windows.Forms.ComboBox()
         Me.UserIDTextBox = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.UsersTableTableAdapter = New AttendanceControls.MonthlySalaryDataSetTableAdapters.UsersTableTableAdapter()
         Me.TableAdapterManager = New AttendanceControls.MonthlySalaryDataSetTableAdapters.TableAdapterManager()
         Me.AttendanceTableTableAdapter = New AttendanceControls.MonthlySalaryDataSetTableAdapters.AttendanceTableTableAdapter()
@@ -77,7 +78,11 @@ Partial Class MonthlySalary
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TB_HourSalary = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Bu_LoadSalaryFile = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.TB_NetMoney = New System.Windows.Forms.TextBox()
+        Me.Bu_SetHoliday = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TB_Money = New System.Windows.Forms.TextBox()
         Me.LB_DayAbsent = New System.Windows.Forms.ListBox()
@@ -86,8 +91,8 @@ Partial Class MonthlySalary
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TB_TotalLate = New System.Windows.Forms.TextBox()
         Me.TableAdapterManager1 = New AttendanceControls.ACDataSetTableAdapters.TableAdapterManager()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Bu_LoadSalaryFile = New System.Windows.Forms.Button()
+        Me.HolidayTableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.HolidayTableTableAdapter = New AttendanceControls.MonthlySalaryDataSetTableAdapters.HolidayTableTableAdapter()
         UserIDLabel = New System.Windows.Forms.Label()
         UsernameLabel = New System.Windows.Forms.Label()
         SectionLabel = New System.Windows.Forms.Label()
@@ -101,12 +106,13 @@ Partial Class MonthlySalary
         CType(Me.AttendanceTableDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
+        CType(Me.HolidayTableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'UserIDLabel
         '
         UserIDLabel.AutoSize = True
-        UserIDLabel.Location = New System.Drawing.Point(15, 27)
+        UserIDLabel.Location = New System.Drawing.Point(15, 25)
         UserIDLabel.Name = "UserIDLabel"
         UserIDLabel.Size = New System.Drawing.Size(55, 14)
         UserIDLabel.TabIndex = 0
@@ -115,7 +121,7 @@ Partial Class MonthlySalary
         'UsernameLabel
         '
         UsernameLabel.AutoSize = True
-        UsernameLabel.Location = New System.Drawing.Point(151, 27)
+        UsernameLabel.Location = New System.Drawing.Point(151, 25)
         UsernameLabel.Name = "UsernameLabel"
         UsernameLabel.Size = New System.Drawing.Size(70, 14)
         UsernameLabel.TabIndex = 2
@@ -124,7 +130,7 @@ Partial Class MonthlySalary
         'SectionLabel
         '
         SectionLabel.AutoSize = True
-        SectionLabel.Location = New System.Drawing.Point(15, 60)
+        SectionLabel.Location = New System.Drawing.Point(15, 58)
         SectionLabel.Name = "SectionLabel"
         SectionLabel.Size = New System.Drawing.Size(57, 14)
         SectionLabel.TabIndex = 4
@@ -132,7 +138,6 @@ Partial Class MonthlySalary
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.Bu_Get)
         Me.GroupBox1.Controls.Add(Me.CB_Year)
         Me.GroupBox1.Controls.Add(Me.CB_Month)
@@ -144,14 +149,14 @@ Partial Class MonthlySalary
         Me.GroupBox1.Controls.Add(Me.UserIDTextBox)
         Me.GroupBox1.Location = New System.Drawing.Point(8, 8)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(432, 121)
+        Me.GroupBox1.Size = New System.Drawing.Size(432, 135)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Users"
         '
         'Bu_Get
         '
-        Me.Bu_Get.Location = New System.Drawing.Point(179, 85)
+        Me.Bu_Get.Location = New System.Drawing.Point(179, 96)
         Me.Bu_Get.Name = "Bu_Get"
         Me.Bu_Get.Size = New System.Drawing.Size(75, 30)
         Me.Bu_Get.TabIndex = 9
@@ -163,7 +168,7 @@ Partial Class MonthlySalary
         Me.CB_Year.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CB_Year.FormattingEnabled = True
         Me.CB_Year.Items.AddRange(New Object() {"2016", "2017", "2018", "2019"})
-        Me.CB_Year.Location = New System.Drawing.Point(198, 57)
+        Me.CB_Year.Location = New System.Drawing.Point(198, 55)
         Me.CB_Year.Name = "CB_Year"
         Me.CB_Year.Size = New System.Drawing.Size(72, 22)
         Me.CB_Year.TabIndex = 7
@@ -173,7 +178,7 @@ Partial Class MonthlySalary
         Me.CB_Month.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CB_Month.FormattingEnabled = True
         Me.CB_Month.Items.AddRange(New Object() {"1-January", "2-February", "3-March", "4-April", "5-May", "6-June", "7-July", "8-August", "9-September", "10-October", "11-November", "12-December"})
-        Me.CB_Month.Location = New System.Drawing.Point(278, 57)
+        Me.CB_Month.Location = New System.Drawing.Point(278, 55)
         Me.CB_Month.Name = "CB_Month"
         Me.CB_Month.Size = New System.Drawing.Size(140, 22)
         Me.CB_Month.TabIndex = 8
@@ -181,11 +186,12 @@ Partial Class MonthlySalary
         'SectionTextBox
         '
         Me.SectionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UsersTableBindingSource, "Section", True))
-        Me.SectionTextBox.Location = New System.Drawing.Point(76, 57)
+        Me.SectionTextBox.Location = New System.Drawing.Point(76, 55)
         Me.SectionTextBox.Name = "SectionTextBox"
         Me.SectionTextBox.ReadOnly = True
         Me.SectionTextBox.Size = New System.Drawing.Size(116, 22)
         Me.SectionTextBox.TabIndex = 5
+        Me.SectionTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'UsersTableBindingSource
         '
@@ -205,7 +211,7 @@ Partial Class MonthlySalary
         Me.UsernameComboBox.DisplayMember = "Username"
         Me.UsernameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.UsernameComboBox.FormattingEnabled = True
-        Me.UsernameComboBox.Location = New System.Drawing.Point(227, 24)
+        Me.UsernameComboBox.Location = New System.Drawing.Point(227, 22)
         Me.UsernameComboBox.Name = "UsernameComboBox"
         Me.UsernameComboBox.Size = New System.Drawing.Size(191, 22)
         Me.UsernameComboBox.TabIndex = 3
@@ -214,11 +220,22 @@ Partial Class MonthlySalary
         'UserIDTextBox
         '
         Me.UserIDTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UsersTableBindingSource, "UserID", True))
-        Me.UserIDTextBox.Location = New System.Drawing.Point(77, 24)
+        Me.UserIDTextBox.Location = New System.Drawing.Point(77, 22)
         Me.UserIDTextBox.Name = "UserIDTextBox"
         Me.UserIDTextBox.ReadOnly = True
         Me.UserIDTextBox.Size = New System.Drawing.Size(67, 22)
         Me.UserIDTextBox.TabIndex = 1
+        Me.UserIDTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(1270, 17)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 30)
+        Me.Button1.TabIndex = 10
+        Me.Button1.Text = "Get"
+        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Visible = False
         '
         'UsersTableTableAdapter
         '
@@ -228,6 +245,7 @@ Partial Class MonthlySalary
         '
         Me.TableAdapterManager.AttendanceTableTableAdapter = Me.AttendanceTableTableAdapter
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.HolidayTableTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = AttendanceControls.MonthlySalaryDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.UserInfosTableAdapter = Nothing
         Me.TableAdapterManager.UsersTableTableAdapter = Me.UsersTableTableAdapter
@@ -361,7 +379,7 @@ Partial Class MonthlySalary
         'MorningTimeRoundTextBox
         '
         Me.MorningTimeRoundTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.VariableTableBindingSource, "MorningTimeRound", True))
-        Me.MorningTimeRoundTextBox.Location = New System.Drawing.Point(429, 135)
+        Me.MorningTimeRoundTextBox.Location = New System.Drawing.Point(429, 178)
         Me.MorningTimeRoundTextBox.Name = "MorningTimeRoundTextBox"
         Me.MorningTimeRoundTextBox.Size = New System.Drawing.Size(45, 22)
         Me.MorningTimeRoundTextBox.TabIndex = 3
@@ -383,10 +401,10 @@ Partial Class MonthlySalary
         Me.AttendanceTableDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.AttendanceTableDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DayName, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.MorningLate, Me.EveningLate, Me.SumLate, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9})
         Me.AttendanceTableDataGridView.DataSource = Me.AttendanceTableBindingSource
-        Me.AttendanceTableDataGridView.Location = New System.Drawing.Point(8, 135)
+        Me.AttendanceTableDataGridView.Location = New System.Drawing.Point(8, 149)
         Me.AttendanceTableDataGridView.Name = "AttendanceTableDataGridView"
         Me.AttendanceTableDataGridView.RowHeadersWidth = 25
-        Me.AttendanceTableDataGridView.Size = New System.Drawing.Size(1255, 555)
+        Me.AttendanceTableDataGridView.Size = New System.Drawing.Size(1196, 549)
         Me.AttendanceTableDataGridView.TabIndex = 3
         '
         'DataGridViewTextBoxColumn1
@@ -430,14 +448,12 @@ Partial Class MonthlySalary
         Me.DataGridViewTextBoxColumn5.DataPropertyName = "TimeIn"
         Me.DataGridViewTextBoxColumn5.HeaderText = "TimeIn"
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
         '
         'DataGridViewTextBoxColumn6
         '
         Me.DataGridViewTextBoxColumn6.DataPropertyName = "TimeOut"
         Me.DataGridViewTextBoxColumn6.HeaderText = "TimeOut"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
         '
         'MorningLate
         '
@@ -536,20 +552,33 @@ Partial Class MonthlySalary
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.TB_monthSalary)
+        Me.GroupBox2.Controls.Add(Me.Bu_LoadSalaryFile)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Controls.Add(Me.TB_HourSalary)
         Me.GroupBox2.Controls.Add(Me.TB_DaySalary)
         Me.GroupBox2.Controls.Add(Me.Label2)
-        Me.GroupBox2.Location = New System.Drawing.Point(446, 8)
+        Me.GroupBox2.Location = New System.Drawing.Point(451, 8)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(219, 121)
+        Me.GroupBox2.Size = New System.Drawing.Size(219, 135)
         Me.GroupBox2.TabIndex = 10
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Salary"
         '
+        'Bu_LoadSalaryFile
+        '
+        Me.Bu_LoadSalaryFile.Location = New System.Drawing.Point(51, 105)
+        Me.Bu_LoadSalaryFile.Name = "Bu_LoadSalaryFile"
+        Me.Bu_LoadSalaryFile.Size = New System.Drawing.Size(119, 21)
+        Me.Bu_LoadSalaryFile.TabIndex = 12
+        Me.Bu_LoadSalaryFile.Text = "Load Salary File"
+        Me.Bu_LoadSalaryFile.UseVisualStyleBackColor = True
+        '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.Label7)
+        Me.GroupBox3.Controls.Add(Me.TB_NetMoney)
+        Me.GroupBox3.Controls.Add(Me.Bu_SetHoliday)
         Me.GroupBox3.Controls.Add(Me.Label6)
         Me.GroupBox3.Controls.Add(Me.TB_Money)
         Me.GroupBox3.Controls.Add(Me.LB_DayAbsent)
@@ -557,26 +586,53 @@ Partial Class MonthlySalary
         Me.GroupBox3.Controls.Add(Me.TB_DayAbsent)
         Me.GroupBox3.Controls.Add(Me.Label4)
         Me.GroupBox3.Controls.Add(Me.TB_TotalLate)
-        Me.GroupBox3.Location = New System.Drawing.Point(671, 8)
+        Me.GroupBox3.Location = New System.Drawing.Point(681, 8)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(383, 121)
+        Me.GroupBox3.Size = New System.Drawing.Size(518, 135)
         Me.GroupBox3.TabIndex = 11
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Result"
         '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(6, 95)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(77, 14)
+        Me.Label7.TabIndex = 16
+        Me.Label7.Text = "Net Money " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'TB_NetMoney
+        '
+        Me.TB_NetMoney.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TB_NetMoney.Location = New System.Drawing.Point(85, 88)
+        Me.TB_NetMoney.Name = "TB_NetMoney"
+        Me.TB_NetMoney.Size = New System.Drawing.Size(107, 27)
+        Me.TB_NetMoney.TabIndex = 15
+        Me.TB_NetMoney.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Bu_SetHoliday
+        '
+        Me.Bu_SetHoliday.Location = New System.Drawing.Point(201, 54)
+        Me.Bu_SetHoliday.Name = "Bu_SetHoliday"
+        Me.Bu_SetHoliday.Size = New System.Drawing.Size(126, 30)
+        Me.Bu_SetHoliday.TabIndex = 10
+        Me.Bu_SetHoliday.Text = "Set Holiday"
+        Me.Bu_SetHoliday.UseVisualStyleBackColor = True
+        '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(44, 94)
+        Me.Label6.Location = New System.Drawing.Point(9, 52)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(52, 14)
+        Me.Label6.Size = New System.Drawing.Size(70, 28)
         Me.Label6.TabIndex = 14
-        Me.Label6.Text = "Money:"
+        Me.Label6.Text = "Money " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Deduction"
         '
         'TB_Money
         '
         Me.TB_Money.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TB_Money.Location = New System.Drawing.Point(102, 87)
+        Me.TB_Money.Location = New System.Drawing.Point(85, 55)
         Me.TB_Money.Name = "TB_Money"
         Me.TB_Money.Size = New System.Drawing.Size(107, 27)
         Me.TB_Money.TabIndex = 13
@@ -586,15 +642,15 @@ Partial Class MonthlySalary
         '
         Me.LB_DayAbsent.FormattingEnabled = True
         Me.LB_DayAbsent.ItemHeight = 14
-        Me.LB_DayAbsent.Location = New System.Drawing.Point(215, 22)
+        Me.LB_DayAbsent.Location = New System.Drawing.Point(342, 14)
         Me.LB_DayAbsent.Name = "LB_DayAbsent"
-        Me.LB_DayAbsent.Size = New System.Drawing.Size(162, 88)
+        Me.LB_DayAbsent.Size = New System.Drawing.Size(162, 116)
         Me.LB_DayAbsent.TabIndex = 12
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(14, 61)
+        Me.Label5.Location = New System.Drawing.Point(198, 29)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(82, 14)
         Me.Label5.TabIndex = 3
@@ -603,16 +659,16 @@ Partial Class MonthlySalary
         'TB_DayAbsent
         '
         Me.TB_DayAbsent.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TB_DayAbsent.Location = New System.Drawing.Point(102, 54)
+        Me.TB_DayAbsent.Location = New System.Drawing.Point(281, 22)
         Me.TB_DayAbsent.Name = "TB_DayAbsent"
-        Me.TB_DayAbsent.Size = New System.Drawing.Size(107, 27)
+        Me.TB_DayAbsent.Size = New System.Drawing.Size(46, 27)
         Me.TB_DayAbsent.TabIndex = 2
         Me.TB_DayAbsent.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(23, 28)
+        Me.Label4.Location = New System.Drawing.Point(6, 29)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(73, 14)
         Me.Label4.TabIndex = 1
@@ -621,7 +677,7 @@ Partial Class MonthlySalary
         'TB_TotalLate
         '
         Me.TB_TotalLate.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TB_TotalLate.Location = New System.Drawing.Point(102, 21)
+        Me.TB_TotalLate.Location = New System.Drawing.Point(85, 22)
         Me.TB_TotalLate.Name = "TB_TotalLate"
         Me.TB_TotalLate.ReadOnly = True
         Me.TB_TotalLate.Size = New System.Drawing.Size(107, 27)
@@ -637,32 +693,22 @@ Partial Class MonthlySalary
         Me.TableAdapterManager1.UsersTableTableAdapter = Nothing
         Me.TableAdapterManager1.VariableTableTableAdapter = Nothing
         '
-        'Button1
+        'HolidayTableBindingSource
         '
-        Me.Button1.Location = New System.Drawing.Point(310, 81)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 30)
-        Me.Button1.TabIndex = 10
-        Me.Button1.Text = "Get"
-        Me.Button1.UseVisualStyleBackColor = True
-        Me.Button1.Visible = False
+        Me.HolidayTableBindingSource.DataMember = "HolidayTable"
+        Me.HolidayTableBindingSource.DataSource = Me.MonthlySalaryDataSet
         '
-        'Bu_LoadSalaryFile
+        'HolidayTableTableAdapter
         '
-        Me.Bu_LoadSalaryFile.Location = New System.Drawing.Point(1060, 23)
-        Me.Bu_LoadSalaryFile.Name = "Bu_LoadSalaryFile"
-        Me.Bu_LoadSalaryFile.Size = New System.Drawing.Size(96, 41)
-        Me.Bu_LoadSalaryFile.TabIndex = 12
-        Me.Bu_LoadSalaryFile.Text = "Load Salary File"
-        Me.Bu_LoadSalaryFile.UseVisualStyleBackColor = True
+        Me.HolidayTableTableAdapter.ClearBeforeFill = True
         '
         'MonthlySalary
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.ClientSize = New System.Drawing.Size(1281, 702)
-        Me.Controls.Add(Me.Bu_LoadSalaryFile)
+        Me.ClientSize = New System.Drawing.Size(1208, 710)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.AttendanceTableDataGridView)
@@ -688,6 +734,7 @@ Partial Class MonthlySalary
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
+        CType(Me.HolidayTableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -733,6 +780,19 @@ Partial Class MonthlySalary
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents TB_TotalLate As TextBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents TB_DayAbsent As TextBox
+    Friend WithEvents LB_DayAbsent As ListBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents TB_Money As TextBox
+    Friend WithEvents TableAdapterManager1 As ACDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Bu_LoadSalaryFile As Button
+    Friend WithEvents Bu_SetHoliday As Button
+    Friend WithEvents HolidayTableBindingSource As BindingSource
+    Friend WithEvents HolidayTableTableAdapter As MonthlySalaryDataSetTableAdapters.HolidayTableTableAdapter
+    Friend WithEvents Label7 As Label
+    Friend WithEvents TB_NetMoney As TextBox
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
@@ -746,12 +806,4 @@ Partial Class MonthlySalary
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
-    Friend WithEvents Label5 As Label
-    Friend WithEvents TB_DayAbsent As TextBox
-    Friend WithEvents LB_DayAbsent As ListBox
-    Friend WithEvents Label6 As Label
-    Friend WithEvents TB_Money As TextBox
-    Friend WithEvents TableAdapterManager1 As ACDataSetTableAdapters.TableAdapterManager
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Bu_LoadSalaryFile As Button
 End Class

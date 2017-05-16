@@ -26,3 +26,4 @@ D:\Code\AttendanceControls\AttendanceControls\bin\Debug\pt\Microsoft.SqlServer.T
 D:\Code\AttendanceControls\AttendanceControls\bin\Debug\ru\Microsoft.SqlServer.Types.resources.dll
 D:\Code\AttendanceControls\AttendanceControls\bin\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
 D:\Code\AttendanceControls\AttendanceControls\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+D:\Code\AttendanceControls\AttendanceControls\obj\Debug\AttendanceControls.HoliDaysForm.resources

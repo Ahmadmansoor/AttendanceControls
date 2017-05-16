@@ -102,6 +102,8 @@ Partial Class MainForm
         Me.TimePickerAdd = New System.Windows.Forms.DateTimePicker()
         Me.CB_AddData = New System.Windows.Forms.ComboBox()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.Bu_Cal = New System.Windows.Forms.Button()
+        Me.TB_HourCalc = New System.Windows.Forms.TextBox()
         Me.UserIDTextBox = New System.Windows.Forms.TextBox()
         Me.Bu_Edit = New System.Windows.Forms.Button()
         Me.CB_Year = New System.Windows.Forms.ComboBox()
@@ -141,7 +143,7 @@ Partial Class MainForm
         'UserIDLabel
         '
         UserIDLabel.AutoSize = True
-        UserIDLabel.Location = New System.Drawing.Point(18, 65)
+        UserIDLabel.Location = New System.Drawing.Point(18, 55)
         UserIDLabel.Name = "UserIDLabel"
         UserIDLabel.Size = New System.Drawing.Size(60, 16)
         UserIDLabel.TabIndex = 7
@@ -405,6 +407,7 @@ Partial Class MainForm
         '
         Me.AttendanceTableDataGridView.AllowUserToAddRows = False
         Me.AttendanceTableDataGridView.AllowUserToDeleteRows = False
+        Me.AttendanceTableDataGridView.AllowUserToOrderColumns = True
         Me.AttendanceTableDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -418,7 +421,7 @@ Partial Class MainForm
         Me.AttendanceTableDataGridView.Name = "AttendanceTableDataGridView"
         Me.AttendanceTableDataGridView.ReadOnly = True
         Me.AttendanceTableDataGridView.RowHeadersWidth = 10
-        Me.AttendanceTableDataGridView.Size = New System.Drawing.Size(1224, 462)
+        Me.AttendanceTableDataGridView.Size = New System.Drawing.Size(1224, 430)
         Me.AttendanceTableDataGridView.TabIndex = 2
         '
         'LogID
@@ -873,6 +876,8 @@ Partial Class MainForm
         '
         'GroupBox6
         '
+        Me.GroupBox6.Controls.Add(Me.Bu_Cal)
+        Me.GroupBox6.Controls.Add(Me.TB_HourCalc)
         Me.GroupBox6.Controls.Add(UsernameLabel)
         Me.GroupBox6.Controls.Add(Me.UserIDTextBox)
         Me.GroupBox6.Controls.Add(Me.Bu_Edit)
@@ -888,6 +893,23 @@ Partial Class MainForm
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Get Data By Name"
         '
+        'Bu_Cal
+        '
+        Me.Bu_Cal.Location = New System.Drawing.Point(11, 120)
+        Me.Bu_Cal.Name = "Bu_Cal"
+        Me.Bu_Cal.Size = New System.Drawing.Size(67, 27)
+        Me.Bu_Cal.TabIndex = 26
+        Me.Bu_Cal.Text = "Hour"
+        Me.Bu_Cal.UseVisualStyleBackColor = True
+        '
+        'TB_HourCalc
+        '
+        Me.TB_HourCalc.Location = New System.Drawing.Point(86, 122)
+        Me.TB_HourCalc.Name = "TB_HourCalc"
+        Me.TB_HourCalc.Size = New System.Drawing.Size(180, 23)
+        Me.TB_HourCalc.TabIndex = 25
+        Me.TB_HourCalc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'UserIDTextBox
         '
         Me.UserIDTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UsersTableBindingSource, "UserID", True))
@@ -901,9 +923,9 @@ Partial Class MainForm
         'Bu_Edit
         '
         Me.Bu_Edit.Font = New System.Drawing.Font("Tahoma", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Bu_Edit.Location = New System.Drawing.Point(137, 99)
+        Me.Bu_Edit.Location = New System.Drawing.Point(188, 85)
         Me.Bu_Edit.Name = "Bu_Edit"
-        Me.Bu_Edit.Size = New System.Drawing.Size(78, 32)
+        Me.Bu_Edit.Size = New System.Drawing.Size(78, 33)
         Me.Bu_Edit.TabIndex = 9
         Me.Bu_Edit.Text = "Edit"
         Me.Bu_Edit.UseVisualStyleBackColor = True
@@ -913,14 +935,14 @@ Partial Class MainForm
         Me.CB_Year.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CB_Year.FormattingEnabled = True
         Me.CB_Year.Items.AddRange(New Object() {"2016", "2017", "2018", "2019"})
-        Me.CB_Year.Location = New System.Drawing.Point(89, 65)
+        Me.CB_Year.Location = New System.Drawing.Point(89, 55)
         Me.CB_Year.Name = "CB_Year"
         Me.CB_Year.Size = New System.Drawing.Size(62, 24)
         Me.CB_Year.TabIndex = 5
         '
         'Bu_GetData
         '
-        Me.Bu_GetData.Location = New System.Drawing.Point(35, 99)
+        Me.Bu_GetData.Location = New System.Drawing.Point(86, 84)
         Me.Bu_GetData.Name = "Bu_GetData"
         Me.Bu_GetData.Size = New System.Drawing.Size(96, 34)
         Me.Bu_GetData.TabIndex = 7
@@ -932,7 +954,7 @@ Partial Class MainForm
         Me.CB_Month.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CB_Month.FormattingEnabled = True
         Me.CB_Month.Items.AddRange(New Object() {"1-January", "2-February", "3-March", "4-April", "5-May", "6-June", "7-July", "8-August", "9-September", "10-October", "11-November", "12-December"})
-        Me.CB_Month.Location = New System.Drawing.Point(157, 65)
+        Me.CB_Month.Location = New System.Drawing.Point(157, 55)
         Me.CB_Month.Name = "CB_Month"
         Me.CB_Month.Size = New System.Drawing.Size(121, 24)
         Me.CB_Month.TabIndex = 6
@@ -1059,4 +1081,6 @@ Partial Class MainForm
     Friend WithEvents DayName As DataGridViewTextBoxColumn
     Friend WithEvents Bu_Absent As Button
     Friend WithEvents ProgressBar1 As ProgressBar
+    Friend WithEvents Bu_Cal As Button
+    Friend WithEvents TB_HourCalc As TextBox
 End Class
