@@ -220,33 +220,34 @@ Public Class MainForm
     End Sub
 
     Private Sub BU_print_Click(sender As Object, e As EventArgs) Handles BU_print.Click
-        'Dim s As Boolean = DataGridResize(AttendanceTableDataGridView)
-        'Dim doc As New GridPrintDocument(Me.AttendanceTableDataGridView1, Me.AttendanceTableDataGridView1.Font, True)
-        'Dim doc As New GridPrintDocument(Me.DataGridViewSized, Me.DataGridViewSized.Font, True)
-        Dim doc As New GridPrintDocument(Me.AttendanceTableDataGridView, Me.AttendanceTableDataGridView.Font, True)
-        doc.DocumentName = "Preview Test"
-        Dim printPreviewDialog As New PrintPreviewDialog()
-        printPreviewDialog.ClientSize = New Size(600, 800)
-        printPreviewDialog.Location = New Point(2, 2)
-        printPreviewDialog.Name = "Print Preview Dialog"
-        printPreviewDialog.UseAntiAlias = True
-        printPreviewDialog.Document = doc
-        doc.DrawCellBox = True
-        doc.DefaultPageSettings.Landscape = True
-        doc.ScaleFactor = CDbl(TB_ScalFactor.Text) ' 1 'scale
-        'doc.DefaultPageSettings.PaperSize = New PaperSize("A4", 627, 969)  ' 8.27, 11.69)m_PageSize = {X = 100 Y = 100 Width = 627 Height = 969}
-        doc.DefaultPageSettings.Margins = New Margins(5, 5, 5, 5)
-        printPreviewDialog.Document = doc
-        Try
-            printPreviewDialog.ShowDialog()
+        ''Dim s As Boolean = DataGridResize(AttendanceTableDataGridView)
+        ''Dim doc As New GridPrintDocument(Me.AttendanceTableDataGridView1, Me.AttendanceTableDataGridView1.Font, True)
+        ''Dim doc As New GridPrintDocument(Me.DataGridViewSized, Me.DataGridViewSized.Font, True)
+        'Dim doc As New GridPrintDocument(Me.AttendanceTableDataGridView, Me.AttendanceTableDataGridView.Font, True)
+        'doc.DocumentName = "Preview Test"
+        'Dim printPreviewDialog As New PrintPreviewDialog()
+        'printPreviewDialog.ClientSize = New Size(600, 800)
+        'printPreviewDialog.Location = New Point(2, 2)
+        'printPreviewDialog.Name = "Print Preview Dialog"
+        'printPreviewDialog.UseAntiAlias = True
+        'printPreviewDialog.Document = doc
+        'doc.DrawCellBox = True
+        'doc.DefaultPageSettings.Landscape = True
+        'doc.ScaleFactor = CDbl(TB_ScalFactor.Text) ' 1 'scale
+        ''doc.DefaultPageSettings.PaperSize = New PaperSize("A4", 627, 969)  ' 8.27, 11.69)m_PageSize = {X = 100 Y = 100 Width = 627 Height = 969}
+        'doc.DefaultPageSettings.Margins = New Margins(5, 5, 5, 5)
+        'printPreviewDialog.Document = doc
+        'Try
+        '    printPreviewDialog.ShowDialog()
 
-        Catch ex As Exception
-            MsgBox(ex.Message.ToString)
-        End Try
-        doc.Dispose()
-        doc = Nothing
-        ''''''''''''''''''''''''''''''''''''''
-        'releaseObject(DataGridViewSized)
+        'Catch ex As Exception
+        '    MsgBox(ex.Message.ToString)
+        'End Try
+        'doc.Dispose()
+        'doc = Nothing
+        '''''''''''''''''''''''''''''''''''''''
+        ''releaseObject(DataGridViewSized)
+        'PrintForm.Show()
 
     End Sub
     Private Sub releaseObject(ByVal obj As Object)
@@ -430,5 +431,38 @@ Public Class MainForm
             End If
         Next
         TB_HourCalc.Text = Math.Round(Sum.TotalHours) & "H :" & Sum.Minutes & "M" 'Sum.ToString.Substring(0, Sum.ToString.LastIndexOf("."))
+    End Sub
+
+    Private Sub Bu_OverTime_Click(sender As Object, e As EventArgs) Handles Bu_OverTime.Click
+        Dim Begintime = TimeSpan.Zero, EndTime As TimeSpan = TimeSpan.Zero
+        Dim Six As TimeSpan = New TimeSpan(18, 0, 0)
+        Dim DaySumHour, TotalSumHour As TimeSpan
+        If (ReportPrintDataSet.Tables("AttendancePrintTable").Rows.Count > 0) Then
+            ReportPrintDataSet.Tables("AttendancePrintTable").Clear()
+        End If
+        For i = 0 To AttendanceTableDataGridView.RowCount - 1
+            Begintime = AttendanceTableDataGridView.Rows(i).Cells(4).Value
+            EndTime = AttendanceTableDataGridView.Rows(i).Cells(5).Value
+            If (EndTime.Hours = 18 And EndTime.Minutes >= 30) Or (EndTime.Hours > 18) Then
+                DaySumHour = EndTime.Subtract(Six)
+                TotalSumHour = TotalSumHour.Add(DaySumHour)
+                Dim newRow As DataRow = ReportPrintDataSet.Tables("AttendancePrintTable").NewRow()
+                newRow(0) = AttendanceTableDataGridView.Rows(i).Cells(0).Value
+                newRow(1) = AttendanceTableDataGridView.Rows(i).Cells(1).Value
+                newRow(2) = AttendanceTableDataGridView.Rows(i).Cells(2).Value
+                newRow(3) = Format(AttendanceTableDataGridView.Rows(i).Cells(3).Value, "MM/dd/yy").ToString
+                newRow(4) = AttendanceTableDataGridView.Rows(i).Cells(4).Value
+                newRow(5) = AttendanceTableDataGridView.Rows(i).Cells(5).Value
+                newRow(6) = AttendanceTableDataGridView.Rows(i).Cells(6).Value
+                newRow(7) = AttendanceTableDataGridView.Rows(i).Cells(7).Value
+                newRow(8) = AttendanceTableDataGridView.Rows(i).Cells(8).Value
+                newRow(9) = AttendanceTableDataGridView.Rows(i).Cells(9).Value
+                newRow(10) = DaySumHour
+                ReportPrintDataSet.Tables("AttendancePrintTable").Rows.Add(newRow)
+            End If
+        Next
+        PrintForm.Show()
+        'ReportViewer1.RefreshReport()
+
     End Sub
 End Class

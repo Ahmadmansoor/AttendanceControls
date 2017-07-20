@@ -271,4 +271,12 @@ Public Class MonthlySalary
         TB_monthSalary.Text = 0
         TB_monthSalary.Text = FindSalary
     End Sub
+
+    Private Sub LB_DayAbsent_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles LB_DayAbsent.MouseDoubleClick
+        Dim temp As String = String.Empty
+        For x As Integer = 0 To LB_DayAbsent.Items.Count - 1
+            temp = temp & LB_DayAbsent.Items(x).ToString & Environment.NewLine
+        Next
+        Clipboard.SetText(temp)
+    End Sub
 End Class

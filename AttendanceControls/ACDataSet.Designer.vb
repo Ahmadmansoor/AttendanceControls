@@ -2007,42 +2007,41 @@ Namespace ACDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(8) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        LogID, UserID, Username, LogDate, TimeIn, TimeOut, LanchOut, LanchI"& _ 
-                "n, Section"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            AttendanceTable"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY LogDate, Username"
+            Me._commandCollection(0).CommandText = "SELECT LogID, UserID, Username, LogDate, TimeIn, TimeOut, LanchOut, LanchIn, Sect"& _ 
+                "ion FROM AttendanceTable ORDER BY LogDate, Username"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT        LogID, UserID, Username, LogDate, TimeIn, TimeOut, LanchOut, LanchI"& _ 
-                "n, Section"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            AttendanceTable"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (DATEPART(year, LogDat"& _ 
-                "e) = @yearx) AND (DATEPART(month, LogDate) = @monthx) AND (DATEPART(day, LogDate"& _ 
-                ") = @dayx)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY TimeIn, LogDate"
+            Me._commandCollection(1).CommandText = "SELECT LogID, UserID, Username, LogDate, TimeIn, TimeOut, LanchOut, LanchIn, Sect"& _ 
+                "ion FROM AttendanceTable WHERE (DATEPART(year, LogDate) = @yearx) AND (DATEPART("& _ 
+                "month, LogDate) = @monthx) AND (DATEPART(day, LogDate) = @dayx) ORDER BY TimeIn,"& _ 
+                " LogDate"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@yearx", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@monthx", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@dayx", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT        LogID, UserID, Username, LogDate, TimeIn, TimeOut, LanchOut, LanchI"& _ 
-                "n, Section"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            AttendanceTable"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (LogDate BETWEEN @LogD"& _ 
-                "ateMin AND @LogDateMax)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY LogDate, TimeIn"
+            Me._commandCollection(2).CommandText = "SELECT LogID, UserID, Username, LogDate, TimeIn, TimeOut, LanchOut, LanchIn, Sect"& _ 
+                "ion FROM AttendanceTable WHERE (LogDate BETWEEN @LogDateMin AND @LogDateMax) ORD"& _ 
+                "ER BY LogDate, TimeIn"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LogDateMin", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "LogDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LogDateMax", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "LogDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "SELECT        LogID, UserID, Username, LogDate, TimeIn, TimeOut, LanchOut, LanchI"& _ 
-                "n, Section"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            AttendanceTable"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (LogDate BETWEEN @LogD"& _ 
-                "ateMin AND @LogDateMax) AND (TimeIn > @TimeInx)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY TimeIn"
+            Me._commandCollection(3).CommandText = "SELECT LogID, UserID, Username, LogDate, TimeIn, TimeOut, LanchOut, LanchIn, Sect"& _ 
+                "ion FROM AttendanceTable WHERE (LogDate BETWEEN @LogDateMin AND @LogDateMax) AND"& _ 
+                " (TimeIn > @TimeInx) ORDER BY TimeIn"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LogDateMin", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "LogDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LogDateMax", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "LogDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TimeInx", Global.System.Data.SqlDbType.Time, 5, Global.System.Data.ParameterDirection.Input, 0, 0, "TimeIn", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "SELECT        LogID, UserID, Username, LogDate, TimeIn, TimeOut, LanchOut, LanchI"& _ 
-                "n, Section"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            AttendanceTable"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (LogDate BETWEEN @LogD"& _ 
-                "ateMin AND @LogDateMax) AND (TimeIn > @TimeInx) AND (TimeOut < @TimeOutx)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER"& _ 
-                " BY TimeIn"
+            Me._commandCollection(4).CommandText = "SELECT LogID, UserID, Username, LogDate, TimeIn, TimeOut, LanchOut, LanchIn, Sect"& _ 
+                "ion FROM AttendanceTable WHERE (LogDate BETWEEN @LogDateMin AND @LogDateMax) AND"& _ 
+                " (TimeIn > @TimeInx) AND (TimeOut < @TimeOutx) ORDER BY TimeIn"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LogDateMin", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "LogDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LogDateMax", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "LogDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -2050,19 +2049,18 @@ Namespace ACDataSetTableAdapters
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TimeOutx", Global.System.Data.SqlDbType.Time, 5, Global.System.Data.ParameterDirection.Input, 0, 0, "TimeOut", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(5).Connection = Me.Connection
-            Me._commandCollection(5).CommandText = "SELECT        LogID, UserID, Username, LogDate, TimeIn, TimeOut, LanchOut, LanchI"& _ 
-                "n, Section"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            AttendanceTable"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (LogDate BETWEEN @LogD"& _ 
-                "ateMin AND @LogDateMax) AND (TimeOut < @TimeOutx)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY TimeOut"
+            Me._commandCollection(5).CommandText = "SELECT LogID, UserID, Username, LogDate, TimeIn, TimeOut, LanchOut, LanchIn, Sect"& _ 
+                "ion FROM AttendanceTable WHERE (LogDate BETWEEN @LogDateMin AND @LogDateMax) AND"& _ 
+                " (TimeOut < @TimeOutx) ORDER BY TimeOut"
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LogDateMin", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "LogDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LogDateMax", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "LogDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TimeOutx", Global.System.Data.SqlDbType.Time, 5, Global.System.Data.ParameterDirection.Input, 0, 0, "TimeOut", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(6) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(6).Connection = Me.Connection
-            Me._commandCollection(6).CommandText = "SELECT        LogID, UserID, Username, LogDate, TimeIn, TimeOut, LanchOut, LanchI"& _ 
-                "n, Section"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            AttendanceTable"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (UserID = @UserID) AND"& _ 
-                " (DATEPART(year, LogDate) = @yearx) AND (DATEPART(month, LogDate) = @monthx)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"OR"& _ 
-                "DER BY LogDate, Username"
+            Me._commandCollection(6).CommandText = "SELECT LogID, UserID, Username, LogDate, TimeIn, TimeOut, LanchOut, LanchIn, Sect"& _ 
+                "ion FROM AttendanceTable WHERE (UserID = @UserID) AND (DATEPART(year, LogDate) ="& _ 
+                " @yearx) AND (DATEPART(month, LogDate) = @monthx) ORDER BY LogDate, Username"
             Me._commandCollection(6).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "UserID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@yearx", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))

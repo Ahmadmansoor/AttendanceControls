@@ -1,0 +1,401 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+OverTime
+</name>
+</assembly>
+<members>
+<member name="T:AttendanceControls.ACDataSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:AttendanceControls.ACDataSet.AttendanceTableDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AttendanceControls.ACDataSet.UsersTableDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AttendanceControls.ACDataSet.VariableTableDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AttendanceControls.ACDataSet.AttendanceTableRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AttendanceControls.ACDataSet.UsersTableRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AttendanceControls.ACDataSet.VariableTableRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AttendanceControls.ACDataSet.AttendanceTableRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AttendanceControls.ACDataSet.UsersTableRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AttendanceControls.ACDataSet.VariableTableRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AttendanceControls.ACDataSetTableAdapters.AttendanceTableTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AttendanceControls.ACDataSetTableAdapters.UsersTableTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AttendanceControls.ACDataSetTableAdapters.VariableTableTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AttendanceControls.ACDataSetTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:AttendanceControls.ACDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(AttendanceControls.ACDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:AttendanceControls.ACDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(AttendanceControls.ACDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:AttendanceControls.ACDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(AttendanceControls.ACDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:AttendanceControls.ACDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:AttendanceControls.ACDataSetTableAdapters.TableAdapterManager.UpdateAll(AttendanceControls.ACDataSet)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:AttendanceControls.ACDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:AttendanceControls.ACDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:AttendanceControls.CancelUsersDataSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:AttendanceControls.CancelUsersDataSet.TerminationUsersDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AttendanceControls.CancelUsersDataSet.UsersTableDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AttendanceControls.CancelUsersDataSet.UserInfosDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AttendanceControls.CancelUsersDataSet.TerminationUsersRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AttendanceControls.CancelUsersDataSet.UsersTableRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AttendanceControls.CancelUsersDataSet.UserInfosRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AttendanceControls.CancelUsersDataSet.TerminationUsersRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AttendanceControls.CancelUsersDataSet.UsersTableRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AttendanceControls.CancelUsersDataSet.UserInfosRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AttendanceControls.CancelUsersDataSetTableAdapters.TerminationUsersTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AttendanceControls.CancelUsersDataSetTableAdapters.UsersTableTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AttendanceControls.CancelUsersDataSetTableAdapters.UserInfosTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AttendanceControls.CancelUsersDataSetTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:AttendanceControls.CancelUsersDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(AttendanceControls.CancelUsersDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:AttendanceControls.CancelUsersDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(AttendanceControls.CancelUsersDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:AttendanceControls.CancelUsersDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(AttendanceControls.CancelUsersDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:AttendanceControls.CancelUsersDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:AttendanceControls.CancelUsersDataSetTableAdapters.TableAdapterManager.UpdateAll(AttendanceControls.CancelUsersDataSet)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:AttendanceControls.CancelUsersDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:AttendanceControls.CancelUsersDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:AttendanceControls.MonthlySalaryDataSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:AttendanceControls.MonthlySalaryDataSet.AttendanceTableDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AttendanceControls.MonthlySalaryDataSet.UserInfosDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AttendanceControls.MonthlySalaryDataSet.UsersTableDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AttendanceControls.MonthlySalaryDataSet.VariableTableDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AttendanceControls.MonthlySalaryDataSet.HolidayTableDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AttendanceControls.MonthlySalaryDataSet.AttendanceTableRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AttendanceControls.MonthlySalaryDataSet.UserInfosRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AttendanceControls.MonthlySalaryDataSet.UsersTableRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AttendanceControls.MonthlySalaryDataSet.VariableTableRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AttendanceControls.MonthlySalaryDataSet.HolidayTableRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AttendanceControls.MonthlySalaryDataSet.AttendanceTableRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AttendanceControls.MonthlySalaryDataSet.UserInfosRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AttendanceControls.MonthlySalaryDataSet.UsersTableRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AttendanceControls.MonthlySalaryDataSet.VariableTableRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AttendanceControls.MonthlySalaryDataSet.HolidayTableRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:AttendanceControls.MonthlySalaryDataSetTableAdapters.AttendanceTableTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AttendanceControls.MonthlySalaryDataSetTableAdapters.UserInfosTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AttendanceControls.MonthlySalaryDataSetTableAdapters.UsersTableTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AttendanceControls.MonthlySalaryDataSetTableAdapters.VariableTableTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AttendanceControls.MonthlySalaryDataSetTableAdapters.HolidayTableTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:AttendanceControls.MonthlySalaryDataSetTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:AttendanceControls.MonthlySalaryDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(AttendanceControls.MonthlySalaryDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:AttendanceControls.MonthlySalaryDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(AttendanceControls.MonthlySalaryDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:AttendanceControls.MonthlySalaryDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(AttendanceControls.MonthlySalaryDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:AttendanceControls.MonthlySalaryDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:AttendanceControls.MonthlySalaryDataSetTableAdapters.TableAdapterManager.UpdateAll(AttendanceControls.MonthlySalaryDataSet)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:AttendanceControls.MonthlySalaryDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:AttendanceControls.MonthlySalaryDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:AttendanceControls.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:AttendanceControls.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:AttendanceControls.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:AttendanceControls.ReportPrintDataSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:AttendanceControls.ReportPrintDataSet.AttendancePrintTableDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:AttendanceControls.ReportPrintDataSet.AttendancePrintTableRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:AttendanceControls.ReportPrintDataSet.AttendancePrintTableRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+</members>
+</doc>

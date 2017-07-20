@@ -24,7 +24,6 @@ Partial Class MainForm
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim UsernameLabel As System.Windows.Forms.Label
-        Dim UserIDLabel As System.Windows.Forms.Label
         Dim LogDateLabel As System.Windows.Forms.Label
         Dim SectionLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
@@ -86,8 +85,8 @@ Partial Class MainForm
         Me.DTP_GetDataByTimeMax = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Bu_OverTime = New System.Windows.Forms.Button()
         Me.BU_ExcelPrint = New System.Windows.Forms.Button()
-        Me.TB_ScalFactor = New System.Windows.Forms.TextBox()
         Me.BU_print = New System.Windows.Forms.Button()
         Me.BU_Add = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -112,8 +111,9 @@ Partial Class MainForm
         Me.VariableTableTableAdapter = New AttendanceControls.ACDataSetTableAdapters.VariableTableTableAdapter()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.ReportPrintDataSet = New AttendanceControls.ReportPrintDataSet()
+        Me.AttendancePrintTableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         UsernameLabel = New System.Windows.Forms.Label()
-        UserIDLabel = New System.Windows.Forms.Label()
         LogDateLabel = New System.Windows.Forms.Label()
         SectionLabel = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
@@ -129,6 +129,8 @@ Partial Class MainForm
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
+        CType(Me.ReportPrintDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AttendancePrintTableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'UsernameLabel
@@ -139,16 +141,6 @@ Partial Class MainForm
         UsernameLabel.Size = New System.Drawing.Size(77, 16)
         UsernameLabel.TabIndex = 3
         UsernameLabel.Text = "Username:"
-        '
-        'UserIDLabel
-        '
-        UserIDLabel.AutoSize = True
-        UserIDLabel.Location = New System.Drawing.Point(18, 55)
-        UserIDLabel.Name = "UserIDLabel"
-        UserIDLabel.Size = New System.Drawing.Size(60, 16)
-        UserIDLabel.TabIndex = 7
-        UserIDLabel.Text = "User ID:"
-        UserIDLabel.Visible = False
         '
         'LogDateLabel
         '
@@ -421,7 +413,7 @@ Partial Class MainForm
         Me.AttendanceTableDataGridView.Name = "AttendanceTableDataGridView"
         Me.AttendanceTableDataGridView.ReadOnly = True
         Me.AttendanceTableDataGridView.RowHeadersWidth = 10
-        Me.AttendanceTableDataGridView.Size = New System.Drawing.Size(1224, 430)
+        Me.AttendanceTableDataGridView.Size = New System.Drawing.Size(1221, 467)
         Me.AttendanceTableDataGridView.TabIndex = 2
         '
         'LogID
@@ -519,15 +511,16 @@ Partial Class MainForm
         Me.GroupBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox2.Controls.Add(Me.GroupBox4)
         Me.GroupBox2.Controls.Add(Me.ProgressBar1)
         Me.GroupBox2.Controls.Add(Me.GroupBox5)
         Me.GroupBox2.Controls.Add(Me.GroupBox3)
         Me.GroupBox2.Controls.Add(Me.AttendanceTableDataGridView)
         Me.GroupBox2.Controls.Add(Me.GroupBox6)
         Me.GroupBox2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox2.Location = New System.Drawing.Point(7, 5)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1242, 677)
+        Me.GroupBox2.Size = New System.Drawing.Size(1239, 684)
         Me.GroupBox2.TabIndex = 5
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Controls"
@@ -536,9 +529,9 @@ Partial Class MainForm
         '
         Me.ProgressBar1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ProgressBar1.Location = New System.Drawing.Point(12, 641)
+        Me.ProgressBar1.Location = New System.Drawing.Point(12, 648)
         Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(1224, 30)
+        Me.ProgressBar1.Size = New System.Drawing.Size(1221, 30)
         Me.ProgressBar1.TabIndex = 24
         '
         'GroupBox5
@@ -685,7 +678,6 @@ Partial Class MainForm
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.GroupBox4)
         Me.GroupBox3.Controls.Add(Me.BU_Add)
         Me.GroupBox3.Controls.Add(Me.Label2)
         Me.GroupBox3.Controls.Add(Me.Label1)
@@ -703,46 +695,47 @@ Partial Class MainForm
         Me.GroupBox3.Controls.Add(Me.CB_AddData)
         Me.GroupBox3.Location = New System.Drawing.Point(309, 17)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(637, 152)
+        Me.GroupBox3.Size = New System.Drawing.Size(486, 152)
         Me.GroupBox3.TabIndex = 10
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Add Value"
         '
         'GroupBox4
         '
+        Me.GroupBox4.Controls.Add(Me.Bu_OverTime)
         Me.GroupBox4.Controls.Add(Me.BU_ExcelPrint)
-        Me.GroupBox4.Controls.Add(Me.TB_ScalFactor)
         Me.GroupBox4.Controls.Add(Me.BU_print)
-        Me.GroupBox4.Location = New System.Drawing.Point(483, 16)
+        Me.GroupBox4.Location = New System.Drawing.Point(800, 17)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(149, 130)
+        Me.GroupBox4.Size = New System.Drawing.Size(149, 151)
         Me.GroupBox4.TabIndex = 20
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Print"
         '
+        'Bu_OverTime
+        '
+        Me.Bu_OverTime.Location = New System.Drawing.Point(8, 78)
+        Me.Bu_OverTime.Name = "Bu_OverTime"
+        Me.Bu_OverTime.Size = New System.Drawing.Size(133, 23)
+        Me.Bu_OverTime.TabIndex = 3
+        Me.Bu_OverTime.Text = "TrimOverTime"
+        Me.Bu_OverTime.UseVisualStyleBackColor = True
+        '
         'BU_ExcelPrint
         '
-        Me.BU_ExcelPrint.Location = New System.Drawing.Point(8, 52)
+        Me.BU_ExcelPrint.Location = New System.Drawing.Point(8, 49)
         Me.BU_ExcelPrint.Name = "BU_ExcelPrint"
-        Me.BU_ExcelPrint.Size = New System.Drawing.Size(99, 23)
+        Me.BU_ExcelPrint.Size = New System.Drawing.Size(135, 23)
         Me.BU_ExcelPrint.TabIndex = 2
         Me.BU_ExcelPrint.Text = "Print/Excel"
         Me.BU_ExcelPrint.UseVisualStyleBackColor = True
         '
-        'TB_ScalFactor
-        '
-        Me.TB_ScalFactor.Location = New System.Drawing.Point(111, 22)
-        Me.TB_ScalFactor.Name = "TB_ScalFactor"
-        Me.TB_ScalFactor.Size = New System.Drawing.Size(32, 23)
-        Me.TB_ScalFactor.TabIndex = 1
-        Me.TB_ScalFactor.Text = "0.5"
-        Me.TB_ScalFactor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
         'BU_print
         '
+        Me.BU_print.Enabled = False
         Me.BU_print.Location = New System.Drawing.Point(8, 20)
         Me.BU_print.Name = "BU_print"
-        Me.BU_print.Size = New System.Drawing.Size(99, 23)
+        Me.BU_print.Size = New System.Drawing.Size(135, 23)
         Me.BU_print.TabIndex = 0
         Me.BU_print.Text = "Print/Printer"
         Me.BU_print.UseVisualStyleBackColor = True
@@ -882,7 +875,6 @@ Partial Class MainForm
         Me.GroupBox6.Controls.Add(Me.UserIDTextBox)
         Me.GroupBox6.Controls.Add(Me.Bu_Edit)
         Me.GroupBox6.Controls.Add(Me.UsernameComboBox)
-        Me.GroupBox6.Controls.Add(UserIDLabel)
         Me.GroupBox6.Controls.Add(Me.CB_Year)
         Me.GroupBox6.Controls.Add(Me.Bu_GetData)
         Me.GroupBox6.Controls.Add(Me.CB_Month)
@@ -963,12 +955,22 @@ Partial Class MainForm
         '
         Me.VariableTableTableAdapter.ClearBeforeFill = True
         '
+        'ReportPrintDataSet
+        '
+        Me.ReportPrintDataSet.DataSetName = "ReportPrintDataSet"
+        Me.ReportPrintDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'AttendancePrintTableBindingSource
+        '
+        Me.AttendancePrintTableBindingSource.DataMember = "AttendancePrintTable"
+        Me.AttendancePrintTableBindingSource.DataSource = Me.ReportPrintDataSet
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.ClientSize = New System.Drawing.Size(1258, 701)
+        Me.ClientSize = New System.Drawing.Size(1253, 701)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.AttendanceTableBindingNavigator)
         Me.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -991,9 +993,10 @@ Partial Class MainForm
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
-        Me.GroupBox4.PerformLayout()
         Me.GroupBox6.ResumeLayout(False)
         Me.GroupBox6.PerformLayout()
+        CType(Me.ReportPrintDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AttendancePrintTableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1052,7 +1055,6 @@ Partial Class MainForm
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents BU_print As Button
     Friend WithEvents PrintDocument1 As Printing.PrintDocument
-    Friend WithEvents TB_ScalFactor As TextBox
     Friend WithEvents BU_ExcelPrint As Button
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
     Friend WithEvents DTP_GetDataByTimeMax As DateTimePicker
@@ -1083,4 +1085,7 @@ Partial Class MainForm
     Friend WithEvents ProgressBar1 As ProgressBar
     Friend WithEvents Bu_Cal As Button
     Friend WithEvents TB_HourCalc As TextBox
+    Friend WithEvents ReportPrintDataSet As ReportPrintDataSet
+    Friend WithEvents AttendancePrintTableBindingSource As BindingSource
+    Friend WithEvents Bu_OverTime As Button
 End Class
